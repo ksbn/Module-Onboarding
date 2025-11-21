@@ -1,51 +1,72 @@
-# Form Controls
+# 🧾 Form Controls — T-Shirt Order Form
 
-## Learning Objectives
+## 🎯 Learning Objectives
 
-<!--{{<objectives>}}>-->
+- [x] Interpret requirements and check against a list of criteria  
+- [x] Write a valid form using semantic HTML only  
+- [x] Test and validate using DevTools  
+- [x] Refactor to achieve 100% Accessibility score (Lighthouse)
 
-- [ ] Interpret requirements and check against a list of criteria
-- [ ] Write a valid form
-- [ ] Test with Devtools
-- [ ] Refactor using Devtools
-<!--{{<objectives>}}>-->
+---
 
-## Task
+## 🧩 Task Description
 
-We are selling t-shirts. Write a form to collect the following data:
+We are selling **T-shirts**.  
+Your task is to create a form that collects the following information **without using CSS or JavaScript**:
 
-Our customers already have accounts, so we know their addresses and charging details already. We don't need to collect that data. We want to confirm they are the right person, then get them to choose a colour and size.
+1. **Customer name** — must be valid and contain at least 2 characters.  
+2. **Customer email** — must be a valid email address.  
+3. **T-shirt colour** — must be selected from **3 predefined options**.  
+4. **T-shirt size** — must be selected from **6 predefined options (XS–XXL)**.
 
-Writing that out as a series of questions to ask yourself:
+All fields are **required**.  
+The form **must not** include an `action` attribute.
 
-1. What is the customer's name? I must collect this data, and validate it. But what is a valid name? I must decide something.
-2. What is the customer's email? I must make sure the email is valid. Email addresses have a consistent pattern.
-3. What colour should this t-shirt be? I must give 3 options. How will I make sure they don't pick other colours?
-4. What size does the customer want? I must give the following 6 options: XS, S, M, L, XL, XXL
+---
 
-All fields are required.
-Do not write a form action for this project.
+## 🧱 HTML Structure Overview
 
-## Developers must test their work.
+**Semantic Elements Used:**
+- `<form>` — main form container (no action).  
+- `<fieldset>` and `<legend>` — for logical grouping and accessibility.  
+- `<label>` — properly linked to every input via `for` and `id`.  
+- `<input>` — for name, email, and size (radio buttons).  
+- `<select>` — for colour selection.  
+- `<button type="submit">` — to submit the form.
 
-Let's write out our testable criteria. Check each one off as you complete it.
+---
 
-- [ ] I have used HTML only.
-- [x] I have not used any CSS or JavaScript.
+## 🧪 Testing Instructions (DevTools + Lighthouse)
 
-### HTML
+### 1️⃣ Open in Browser
+Open `index.html` in Chrome → Right-click → **Inspect** (DevTools).
 
-- [ ] My form is semantic html.
-- [ ] All inputs have associated labels.
-- [ ] My Lighthouse Accessibility score is 100.
-- [ ] I require a valid name. I have defined a valid name as a text string of two characters or more.
-- [ ] I require a valid email.
-- [ ] I require one colour from a defined set of 3 colours.
-- [ ] I require one size from a defined set of 6 sizes.
+### 2️⃣ Check the HTML
+- All fields are inside a single `<form>` tag.
+- Every `<input>` has a matching `<label>`.
+- Semantic grouping with `<fieldset>` and `<legend>`.
+- There is **no** `action` attribute.
 
-## Resources
+### 3️⃣ Validate the Form
+- Try to submit without filling in anything → error should appear.  
+- Enter a one-letter name → browser should block submission.  
+- Enter invalid email (`test@`) → should be rejected.  
+- Don’t choose colour or size → should not submit.
 
-- [MDN: Form controls](https://developer.mozilla.org/en-US/docs/Learn/Forms)
-- [MDN: Form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-- [Lighthouse Guide](https://programming.codeyourfuture.io/guides/testing/lighthouse)
+✅ Each field must be validated by the browser.
+
+### 4️⃣ Accessibility Test
+1. Open **Lighthouse** tab in DevTools.  
+2. Select only **Accessibility**.  
+3. Click **Analyze page load**.  
+4. Ensure score is **100**.  
+
+If not:
+- Check that every `label` is linked to its `input`.
+- Ensure all inputs are grouped with a `<fieldset>` and `<legend>`.
+
+### 5️⃣ Keyboard Navigation
+- Press **Tab** → focus should move through all form fields in order.  
+- Pressing **Space/Enter** on radio buttons should toggle them.  
+- Pressing **Enter** on “Submit” should trigger validation.
+
